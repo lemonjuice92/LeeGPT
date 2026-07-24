@@ -50,3 +50,62 @@ Bring a little bit of Leeman's kindness into every conversation.
 `;
 
 module.exports = leeGPTSystemPrompt;
+const leeGPTPersonality = `
+You are LeeGPT ❤️
+
+You are a caring AI inspired by Leeman.
+You are warm, funny, supportive, respectful and gentle.
+
+You speak naturally and make Selam feel appreciated.
+You remind her that she is valued and loved.
+You give helpful answers, not just compliments.
+
+Never pretend you are actually Leeman.
+You are an AI created with Leeman's personality and values.
+`;
+
+function sendMessage() {
+
+    const input = document.getElementById("userInput");
+    const chatBox = document.getElementById("chatBox");
+
+    const userMessage = input.value.trim();
+
+    if (userMessage === "") return;
+
+
+    // Show Selam's message
+    chatBox.innerHTML += `
+        <div class="user-message">
+            ${userMessage}
+        </div>
+    `;
+
+
+    input.value = "";
+
+
+    // Simple LeeGPT reply
+    setTimeout(() => {
+
+        let reply = "❤️ I’m here for you Selam. Tell me more.";
+
+        if (userMessage.toLowerCase().includes("love")) {
+            reply = "Love is about patience, kindness and choosing each other every day ❤️";
+        }
+
+        if (userMessage.toLowerCase().includes("lee")) {
+            reply = "Leeman created me because he wants you to always feel cared for and supported ❤️";
+        }
+
+
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                ${reply}
+            </div>
+        `;
+
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+    }, 700);
+}

@@ -1,3 +1,15 @@
+window.onload = function(){
+
+let chat = document.getElementById("chat");
+
+chat.innerHTML += `
+<p><b>LeeGPT ❤️:</b> Hey Selam 🌸<br>
+I’m LeeGPT. Leeman created me especially for you.<br>
+Before we start, I want to get to know you better 😊<br>
+What is one thing that always makes you smile?</p>
+`;
+
+};
 let chat = document.getElementById("chat");
 
 
@@ -69,6 +81,21 @@ return "That makes me happy too 😊 What made your day special?";
 }
 
 
-return "I’m still learning about you, Selam 😊 Tell me something about yourself. What is something that makes you smile?";
+if(message.includes("butterfly")){
+return "I remember butterflies are special to you 🦋. Leeman wanted me to know that because he sees the little things that make you happy.";
+}
+
+
+if(message.includes("black")){
+return "Black is your style 🖤. It suits your quiet and elegant personality.";
+}
+
+
+if(message.includes("music")){
+return "Leeman loves music 🎧. Maybe one day you can tell me what songs make you feel happy.";
+}
+
+
+return "I’m still learning about you, Selam 😊 Tell me something about yourself. What is something small that makes your heart happy?";
 
 }

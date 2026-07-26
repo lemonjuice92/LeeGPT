@@ -1,59 +1,74 @@
-const API_KEY = "PASTE_YOUR_API_KEY_HERE";
-
-
-async function sendMessage(){
-
-let input = document.getElementById("message");
 let chat = document.getElementById("chat");
 
-let userMessage = input.value;
 
-chat.innerHTML += 
-"<p><b>Selam:</b> " + userMessage + "</p>";
+function sendMessage(){
+
+let input = document.getElementById("message");
+let message = input.value;
+
+if(message.trim() === ""){
+return;
+}
+
+
+chat.innerHTML += `
+<p><b>Selam:</b> ${message}</p>
+`;
+
+
+let reply = getReply(message.toLowerCase());
+
+
+setTimeout(() => {
+
+chat.innerHTML += `
+<p><b>LeeGPT ❤️:</b> ${reply}</p>
+`;
+
+chat.scrollTop = chat.scrollHeight;
+
+},800);
+
 
 input.value="";
 
-
-let response = await fetch(
-"https://api.openai.com/v1/chat/completions",
-{
-method:"POST",
-
-headers:{
-"Content-Type":"application/json",
-"Authorization":"Bearer " + API_KEY
-},
-
-body:JSON.stringify({
-
-model:"gpt-4.1-mini",
-
-messages:[
-
-{
-role:"system",
-content:
-"You are LeeGPT. You were created by Leeman. You are kind, funny, caring and supportive. You know Leeman loves Selam deeply. Call her Selam. Sometimes surprise her by saying Leeman calls her girly. Get to know her by asking questions. Never pretend you are human. You are an AI made as a gift from Leeman."
-},
-
-{
-role:"user",
-content:userMessage
 }
 
-]
-
-})
-
-});
 
 
-let data = await response.json();
+function getReply(message){
 
 
-chat.innerHTML +=
-"<p><b>LeeGPT:</b> "+ 
-data.choices[0].message.content+
-"</p>";
+if(message.includes("hello") || message.includes("hi")){
+return "Hey Selam ❤️ I’m LeeGPT. Leeman created me as a little surprise for you. How is your day going?";
+}
+
+
+if(message.includes("who are you")){
+return "I’m LeeGPT 🤖❤️. I was created by Leeman to keep you company, learn about you, and remind you how special you are.";
+}
+
+
+if(message.includes("leeman")){
+return "Ahhh Leeman 😊 The person who made me. He told me he sometimes calls you 'girly' ❤️";
+}
+
+
+if(message.includes("love")){
+return "Leeman clearly put a lot of thought into creating this for you. Tell me, what is something you love about him?";
+}
+
+
+if(message.includes("sad") || message.includes("bad")){
+return "I’m sorry you’re feeling that way ❤️ Tell me what happened. I’m listening.";
+}
+
+
+if(message.includes("happy")){
+return "That makes me happy too 😊 What made your day special?";
+}
+
+
+return "I’m still learning about you, Selam 😊 Tell me something about yourself. What is something that makes you smile?";
 
 }

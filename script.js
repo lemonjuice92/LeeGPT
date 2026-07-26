@@ -1,3 +1,4 @@
+let memories = JSON.parse(localStorage.getItem("selamMemories")) || [];
 window.onload = function(){
 
 let chat = document.getElementById("chat");
@@ -17,6 +18,7 @@ function sendMessage(){
 
 let input = document.getElementById("message");
 let message = input.value;
+  saveMemory(message);
 
 if(message.trim() === ""){
 return;
@@ -48,7 +50,33 @@ input.value="";
 
 
 
-function getReply(message){
+function getReply(if(message.includes("remember me")){
+    
+if(memories.length > 0){
+
+return "Of course Selam ❤️ I remember you told me: " + memories[memories.length-1];
+
+}
+
+else{
+
+return "I’m still getting to know you 🌸 Tell me something about yourself.";
+
+}
+)function saveMemory(message){
+
+if(message.length > 5){
+
+memories.push(message);
+
+localStorage.setItem(
+"selamMemories",
+JSON.stringify(memories)
+);
+
+}
+
+}{
 
 
 if(message.includes("hello") || message.includes("hi")){
@@ -98,3 +126,5 @@ return "Leeman loves music 🎧. Maybe one day you can tell me what songs make y
 
 return "I’m still learning about you, Selam 😊 Tell me something about yourself. What is something small that makes your heart happy?";
 }
+
+

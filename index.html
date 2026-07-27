@@ -1,59 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+// LeeGPT v1 - Selam Personality Mode ❤️
 
-<head>
+function leeReply(message) {
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    let text = message.toLowerCase();
 
-<title>LeeGPT ❤️</title>
+    if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
+        return "Hello Selam ❤️ I’m happy you’re here. Leeman made me especially for you. Tell me how your day is going 🌸";
+    }
 
-<link rel="stylesheet" href="style.css">
+    if (text.includes("leeman") || text.includes("my boyfriend")) {
+        return "Ahhh Leeman ❤️ The person who created me. He always talks about how special you are, Selam.";
+    }
 
-</head>
+    if (text.includes("butterfly")) {
+        return "Butterflies remind me of you 🦋 Soft, beautiful, and unique. Leeman told me you love butterflies.";
+    }
 
-<body>
+    if (text.includes("black")) {
+        return "Black is your colour 🖤 Elegant, calm and powerful… just like your personality.";
+    }
 
-<div class="app">
+    if (text.includes("sad") || text.includes("upset")) {
+        return "I’m here with you Selam ❤️ Take your time. You don’t have to explain everything. Sometimes just being heard helps.";
+    }
 
-    <div class="topbar">
+    if (text.includes("love")) {
+        return "Love is a beautiful thing ❤️ Leeman created me because he wants you to always feel appreciated.";
+    }
 
-        <div class="logo">
-            🦋 LeeGPT
-        </div>
+    return "That’s interesting Selam 😊 Tell me more. I’m still learning about you and I want to understand you better ❤️";
+}
 
-        <div class="subtitle">
-            Made with ❤️ by Leeman
-        </div>
 
+function sendMessage() {
+
+    let input = document.getElementById("message");
+    let chat = document.getElementById("chat");
+
+    let userText = input.value;
+
+    if (userText.trim() === "") {
+        return;
+    }
+
+    chat.innerHTML += `
+    <div class="user-message">
+        You: ${userText}
     </div>
+    `;
 
-    <div id="chat" class="chat"></div>
+    let reply = leeReply(userText);
 
-    <div id="typing" class="typing">
-        LeeGPT is typing...
+    chat.innerHTML += `
+    <div class="bot-message">
+        LeeGPT ❤️: ${reply}
     </div>
+    `;
 
-    <div class="bottom">
+    input.value = "";
 
-        <input
-            id="message"
-            type="text"
-            autocomplete="off"
-            placeholder="Message LeeGPT..."
-            onkeydown="if(event.key==='Enter'){sendMessage();}"
-        >
+    chat.scrollTop = chat.scrollHeight;
+}
 
-        <button onclick="sendMessage()">
-            ➜
-        </button>
 
+window.onload = function() {
+
+    let chat = document.getElementById("chat");
+
+    chat.innerHTML += `
+    <div class="bot-message">
+    LeeGPT ❤️: Hello Selam 🌸 I’m LeeGPT. Leeman created me for you. I’m excited to get to know you. Tell me something about yourself 😊
     </div>
+    `;
 
-</div>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+};

@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LeeGPT ❤️</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="chat-container">
+<div class="app">
 
-    <div class="header">
-        <h2>🦋 LeeGPT</h2>
-        <p>Made with ❤️ by Leeman</p>
+    <div class="topbar">
+
+        <div class="logo">
+            🦋 LeeGPT
+        </div>
+
+        <div class="subtitle">
+            Made with ❤️ by Leeman
+        </div>
+
     </div>
 
-    <div id="chat"></div>
+    <div id="chat" class="chat"></div>
 
-    <div class="input-area">
+    <div id="typing" class="typing">
+        LeeGPT is typing...
+    </div>
+
+    <div class="bottom">
+
         <input
-            type="text"
             id="message"
+            type="text"
+            autocomplete="off"
             placeholder="Message LeeGPT..."
-            onkeypress="if(event.key==='Enter') sendMessage();"
+            onkeydown="if(event.key==='Enter'){sendMessage();}"
         >
 
-        <button onclick="sendMessage()">➤</button>
+        <button onclick="sendMessage()">
+            ➜
+        </button>
+
     </div>
 
 </div>
@@ -35,4 +55,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>

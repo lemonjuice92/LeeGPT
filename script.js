@@ -31,11 +31,42 @@ function leeReply(message) {
 }
 
 
-// First welcome message when Selam opens LeeGPT
+// Send message function
+
+function sendMessage() {
+
+    let input = document.getElementById("userInput");
+    let chatbox = document.getElementById("chatbox");
+
+    let userMessage = input.value;
+
+    if (userMessage.trim() === "") {
+        return;
+    }
+
+    chatbox.innerHTML += 
+    "<p><b>You:</b> " + userMessage + "</p>";
+
+    let reply = leeReply(userMessage);
+
+    chatbox.innerHTML += 
+    "<p><b>LeeGPT ❤️:</b> " + reply + "</p>";
+
+    input.value = "";
+
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+
+// Welcome message
 
 window.onload = function() {
-    document.getElementById("chatbox").innerHTML += 
+
+    let chatbox = document.getElementById("chatbox");
+
+    chatbox.innerHTML += 
     "<p><b>LeeGPT ❤️:</b> Hello Selam 🌸 I’m LeeGPT. Leeman created me for you. I’m excited to get to know you. Tell me something about yourself 😊</p>";
+
 };
 
 

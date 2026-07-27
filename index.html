@@ -1,20 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LeeGPT ❤️</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeeGPT ❤️</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
-    <h1>LeeGPT ❤️</h1>
-    <p>Your little AI made by Leeman</p>
+<div class="chat-container">
+
+    <div class="header">
+        <h2>🦋 LeeGPT</h2>
+        <p>Made with ❤️ by Leeman</p>
+    </div>
 
     <div id="chat"></div>
 
-    <input id="message" placeholder="Ask LeeGPT something...">
-    <button onclick="sendMessage()">Send</button>
+    <div class="input-area">
+        <input
+            type="text"
+            id="message"
+            placeholder="Message LeeGPT..."
+            onkeypress="if(event.key==='Enter') sendMessage();"
+        >
+
+        <button onclick="sendMessage()">➤</button>
+    </div>
 
 </div>
 

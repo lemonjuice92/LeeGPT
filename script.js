@@ -65,6 +65,4 @@ window.onload = function() {
     let chatbox = document.getElementById("chat");
 
     chatbox.innerHTML += 
-    "<p><b>LeeGPT ❤️:</b> Hello Selam 🌸 I’m LeeGPT. Leeman created me for you. I’m excited to get to know you. Tell me something about yourself 😊</p>";
-
-};
+    "<p><b>LeeGPT ❤️:</b> Hello Selam 🌸 I’m LeeGPT. Leeman created me for you. I’m excited to get to know you. Tell me something about yourself 😊</

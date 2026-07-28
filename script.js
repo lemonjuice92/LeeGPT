@@ -68,4 +68,3 @@ window.onload = function() {
     "<p><b>LeeGPT ❤️:</b> Hello Selam 🌸 I’m LeeGPT. Leeman created me for you. I’m excited to get to know you. Tell me something about yourself 😊</p>";
 
 };
-

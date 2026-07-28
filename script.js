@@ -31,12 +31,12 @@ function leeReply(message) {
 }
 
 
-// Send message function
+// Send message
 
 function sendMessage() {
 
-    let input = document.getElementById("userInput");
-    let chatbox = document.getElementById("chatbox");
+    let input = document.getElementById("message");
+    let chatbox = document.getElementById("chat");
 
     let userMessage = input.value;
 
@@ -62,7 +62,7 @@ function sendMessage() {
 
 window.onload = function() {
 
-    let chatbox = document.getElementById("chatbox");
+    let chatbox = document.getElementById("chat");
 
     chatbox.innerHTML += 
     "<p><b>LeeGPT ❤️:</b> Hello Selam 🌸 I’m LeeGPT. Leeman created me for you. I’m excited to get to know you. Tell me something about yourself 😊</p>";
